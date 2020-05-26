@@ -15,6 +15,7 @@ import Myproject from '../views/MyProject'
 import UserCenter from "../views/UserCenter";
 import AdminCenter from "../views/AdminCenter";
 import UserProject from "../views/UserProject";
+import GetFaceInfo from "../views/GetFaceInfo";
 Vue.use(VueRouter)
 
   const routes = [
@@ -65,9 +66,13 @@ Vue.use(VueRouter)
                 name:'项目审核',
                 component:Project_SH
             },{
-          path:'admincenter',
+          path:'/admincenter',
                 name:'管理员中心',
                 component:AdminCenter
+            },{
+          path:"/getface",
+                name:"注册刷脸信息",
+                component:GetFaceInfo
             }
 
 

@@ -59,7 +59,8 @@
 
         },created() {
             const _this=this;
-            this.axios.get('http://localhost:8097/keyanservice/laboratory/getlist').then(function (resp) {
+            this.axios.get('http://localhost:8098/cloudzuul/keyanservice/laboratory/getlist').then(function
+                (resp) {
                 _this.tableDate=resp.data.data
 
 

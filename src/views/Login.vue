@@ -55,7 +55,7 @@
                     userPassword: ''
                 },
                 rules: {
-                    adminname: [
+                    adminName: [
                         { required: true, message: '请输入电话号码'},
                         {validator:function(rule,value,callback){
                                 if(/^1[34578]\d{9}$/.test(value) == false){
@@ -65,7 +65,7 @@
                                 }
                             }, trigger: 'blur'}
                     ],
-                    adminpassword: [
+                    adminPassword: [
                         { required: true, message: '密码不能为空', trigger: 'blur'},
                         {min: 5, max: 14, message: '长度在5 到 14 个字符', trigger: 'blur'
                         }
@@ -80,9 +80,8 @@
         methods: {
             submitForm(ruleForm) {
                 this.fullscreenLoading = true;
-
                     const _this=this;
-                    this.$refs[ruleForm].validate((valid) => {
+                this.$refs[ruleForm].validate((valid) => {
                         if (valid) {
                             if (_this.switch_vlue){
                                 this.axios.post('http://localhost:8098/cloudzuul/keyanservice/admin/login',this.ruleForm).then(function

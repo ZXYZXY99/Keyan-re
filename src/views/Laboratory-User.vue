@@ -51,8 +51,25 @@
                 }
             }
         },methods:{
-            handleEdit(row){
-                console.log(row)
+            handleEdit(index,row){
+                console.log(row.id,this.$username);
+                const _this=this;
+                this.axios.post('http://localhost:8098/cloudzuul/keyanservice/laboratory/applayupdate',null,{params:{
+                    id:row.id,
+                    username:this.$username
+                    }}).then(function (resp) {
+                        _this.$message.success('申请成功')
+                        _this.reget();
+                })
+
+
+            },
+            reget(){
+                const _this=this;
+                this.axios.get('http://localhost:8098/cloudzuul/keyanservice/laboratory/getlist').then(function
+                    (resp) {
+                    _this.tableDate=resp.data.data
+                })
             }
         },created() {
             const _this=this;

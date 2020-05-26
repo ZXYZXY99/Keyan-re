@@ -53,7 +53,7 @@
             }
         },created() {
             const _this=this;
-            this.axios.get('http://localhost:8097/keyanservice/user/getlist').then(function (resp) {
+            this.axios.get('http://localhost:8098/cloudzuul/keyanservice/user/getlist').then(function (resp) {
                 console.log(resp.data.data)
                 _this.tableData=resp.data.data
             })

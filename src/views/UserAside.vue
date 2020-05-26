@@ -88,7 +88,7 @@
 <script>
     import {removeToken} from "../util/TokenUtil";
     import {getToken} from "../util/TokenUtil";
-
+    import Vue from 'vue'
     export default {
         data() {
             const item = {
@@ -126,13 +126,14 @@
                 this.$router.push(rou)
             },
             usercenter(){
-                this.$router.push("/systemconfig")
+                this.$router.push("/usercenter")
             }
         },created() {
             const _this=this
             this.axios.get('http://localhost:8098/cloudzuul/keyanservice/user/getusername').then(function (resp) {
                 console.log(resp.data.data)
                 _this.username=resp.data.data;
+                Vue.prototype.$username=resp.data.data;
             })
         }
     };
