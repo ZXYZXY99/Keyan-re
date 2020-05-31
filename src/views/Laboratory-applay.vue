@@ -27,9 +27,24 @@
             <el-table-column
                     align="right">
                 <template slot-scope="scope">
+                    <el-popconfirm
+                            confirmButtonText='好的'
+                            cancelButtonText='不用了'
+                            icon="el-icon-info"
+                            iconColor="red"
+                            title="是否通过审核？"
+                            @onConfirm="handleEdit(scope.row)"
+                    >
+                        <el-button slot="reference"
+                                   size="mini"
+
+                        >通过</el-button>
+                    </el-popconfirm>
                     <el-button
+
                             size="mini"
-                            @click="handleEdit(scope.$index, scope.row)">审核</el-button>
+                            type="danger"
+                            @click="nohandleEdit(scope.$index, scope.row)">不通过</el-button>
 
                 </template>
             </el-table-column>
@@ -55,7 +70,22 @@
 
             }
         },methods:{
+            handleEdit(index){
+                console.log(index)
+                index.ispass='yes';
 
+                this.axios.post('http://localhost:8098/cloudzuul/keyanservice/laboratory-applay/admin/updateLab',index)
+                    .then(function (resp) {
+                    console.log(resp)
+                })
+
+
+
+            },
+            nohandleEdit(index,row){
+                console.log(row)
+
+            }
         },created() {
             const _this=this
 

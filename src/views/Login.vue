@@ -70,10 +70,6 @@
                         {min: 5, max: 14, message: '长度在5 到 14 个字符', trigger: 'blur'
                         }
                     ],
-
-
-
-
                 }
             };
         },

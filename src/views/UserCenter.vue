@@ -36,6 +36,45 @@
                                 </el-table-column>
                         </el-table>
 
+                        <h1>#科研项目申请记录</h1>
+                        <el-table
+                                :data="keyantable"
+                                style="width: 100%">
+                                <el-table-column
+                                        prop="id"
+                                        label="序号"
+                                >
+                                </el-table-column>
+                                <el-table-column
+                                        prop="applyProjectName"
+                                        label="项目名"
+                                >
+                                </el-table-column>
+                                <el-table-column
+                                        prop="applyUser"
+                                        label="项目负责人">
+                                </el-table-column>
+
+                                <el-table-column
+                                        prop="applyProjectText"
+                                        label="项目简介">
+                                </el-table-column>
+
+
+                                <el-table-column
+                                        prop="applyProjectFunds"
+                                        label="资金需求">
+                                </el-table-column>
+                                <el-table-column
+                                        prop="ispass"
+                                        label="是否通过">
+                                </el-table-column>
+
+                        </el-table>
+
+
+
+
 
 
 
@@ -58,7 +97,15 @@
                                     reason:''
                             },
                             username:null,
-                            isfaceinfo:null
+                            isfaceinfo:null,
+                            keyantable:{
+                                    id:'',
+                                    applyProjectName:'',
+                                    applyProjectText:'',
+                                    applyProjectFunds:'',
+                                    applyUser:'',
+                                    ispass:''
+                            }
                     }
             },methods:{
                     jumpGetface(){
@@ -76,14 +123,20 @@
 
                     this.axios.get("http://localhost:8098/cloudzuul/keyanservice/user/isfaceinfo").then(function
                             (resp) {
-                            console.log(resp)
+                            // console.log(resp)
                             _this.isfaceinfo=resp.data.data
                     })
 
                     this.axios.post('http://localhost:8098/cloudzuul/keyanservice/laboratory-applay/getUserLab').then(function (resp) {
-                           console.log(resp)
+                           // console.log(resp)
 
                             _this.tableDate=resp.data.data
+                    })
+
+
+                    this.axios.post('http://localhost:8098/cloudzuul/keyanservice/project-applay/applayprojectuser').then(function (resp) {
+                            console.log(resp)
+                            _this.keyantable=resp.data.data
                     })
 
 
