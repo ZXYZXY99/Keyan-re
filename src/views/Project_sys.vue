@@ -36,6 +36,43 @@
                 </template>
             </el-table-column>
         </el-table>
+        <!--        弹出的修改学生信息表单-->
+        <el-dialog title="查看详情" :visible.sync="dialogeditFormVisible"  >
+            <el-form :model="dialogDate" :rules="dialogrules" ref="dialogDate">
+                <el-form-item label="项目负责人" :label-width="formLabelWidth" prop="projectUser">
+                    <el-input v-model="dialogDate.projectUser" autocomplete="off" disabled></el-input>
+                </el-form-item>
+                <el-form-item label="项目名" :label-width="formLabelWidth" prop="projectName" disabled >
+                    <el-input v-model="dialogDate.projectName" autocomplete="off" disabled></el-input>
+                </el-form-item>
+
+                <el-form-item label="项目介绍" :label-width="formLabelWidth" prop="projectDescribe">
+                    <el-input
+                            type="textarea"
+                            rows="5"
+                            disabled
+                            v-model="dialogDate.projectDescribe">
+                    </el-input>
+                </el-form-item>
+                <el-form-item label="资金需求" :label-width="formLabelWidth" prop="funds">
+                    <el-input v-model="dialogDate.funds" autocomplete="off"
+                              @keyup.native="number" disabled></el-input>
+                </el-form-item>
+                <el-form-item label="科研成果" :label-width="formLabelWidth" prop="achievements">
+                    <el-input type="textarea"
+                              rows="5" v-model="dialogDate.achievements" autocomplete="off" disabled></el-input>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click=" resetForm()">取 消</el-button>
+                <el-button type="primary" @click="submitEditForm('dialogDate')" >确 定</el-button>
+            </div>
+        </el-dialog>
+
+
+
+
+
 
     </div>
 </template>
@@ -45,6 +82,7 @@
         name: "Project_sys",
         data(){
             return{
+                dialogeditFormVisible:false,
                 tableData:{
                     id:'',
                     projectName:'',
@@ -53,11 +91,33 @@
                     funds:'',
                     achievements:''
                 },
+                dialogDate:{
+                    id:'',
+                    projectName:'',
+                    projectUser:'',
+                    projectDescribe:'',
+                    funds:'',
+                    achievements:''
+                }
 
 
             }
         },methods:{
+            handleEdit(index,row){
+                this.dialogeditFormVisible=true;
+                console.log(row);
+                this.dialogDate=row;
 
+
+            },
+            resetForm(){
+              this.dialogeditFormVisible=false;
+                this.dialogDate='';
+            },
+            submitEditForm(){
+                this.dialogDate='';
+                this.dialogeditFormVisible=false;
+            },
         },created() {
             const _this=this;
 

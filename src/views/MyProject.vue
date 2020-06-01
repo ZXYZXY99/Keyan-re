@@ -56,7 +56,7 @@
                         <el-input v-model="dialogData.funds" autocomplete="off"
                                   @keyup.native="number" disabled></el-input>
                     </el-form-item>
-                    <el-form-item label="科研成功" :label-width="formLabelWidth" prop="achievements">
+                    <el-form-item label="科研成果" :label-width="formLabelWidth" prop="achievements">
                         <el-input type="textarea"
                                   rows="5" v-model="dialogData.achievements" autocomplete="off" ></el-input>
                     </el-form-item>
