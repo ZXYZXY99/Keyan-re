@@ -11,7 +11,7 @@ import axios from "axios";
 // // // import request from "request"
 // Vue.prototype.$Ld=ld;
 const  Writerouter=['/login','loginface']; //indexOf判断是否存在某个对象，如果不存在，则返回-1
-const user=['/userlab','/applaymyproject','/myproject','/usercenter','/getface']
+const user=['/userlab','/applaymyproject','/myproject','/usercenter','/getface','/mylab']
 //路由守卫
 const token=getToken();
 // console.log(token+'im token')

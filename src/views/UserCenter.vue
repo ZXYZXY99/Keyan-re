@@ -13,7 +13,8 @@
                         <h1>#实验室申请记录</h1>
 
                         <el-table
-                                :data="tableDate"
+                                :data="tableDate.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+                                stripe
                                 style="width: 100%">
                                 <el-table-column
                                         prop="id"
@@ -35,6 +36,16 @@
                                         label="是否通过">
                                 </el-table-column>
                         </el-table>
+                        <el-pagination
+                                @size-change="handleSizeChange"
+                                @current-change="handleCurrentChange"
+                                :current-page="currentPage"
+                                :page-sizes="[10, 20, 30]"
+                                :page-size="pagesize"
+                                layout="total, sizes, prev, pager, next, jumper"
+                                :total=tableDate.length>
+                        </el-pagination>
+
 
                         <h1>#科研项目申请记录</h1>
                         <el-table
@@ -96,6 +107,8 @@
                                     ispass:'',
                                     reason:''
                             },
+                            currentPage:1,
+                            pagesize:20,
                             username:null,
                             isfaceinfo:null,
                             keyantable:{
@@ -110,7 +123,13 @@
             },methods:{
                     jumpGetface(){
                             this.$router.push("/getface")
-                    }
+                    },
+                    handleSizeChange(val) {
+                            this.pagesize = val;
+                    },
+                    handleCurrentChange(val) {
+                            this.currentPage = val;
+                    },
 
 
             },created() {

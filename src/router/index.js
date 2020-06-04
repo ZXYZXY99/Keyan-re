@@ -16,6 +16,7 @@ import UserCenter from "../views/UserCenter";
 import AdminCenter from "../views/AdminCenter";
 import UserProject from "../views/UserProject";
 import GetFaceInfo from "../views/GetFaceInfo";
+import UserLab from "../views/UserLab";
 Vue.use(VueRouter)
 
   const routes = [
@@ -69,10 +70,6 @@ Vue.use(VueRouter)
           path:'/admincenter',
                 name:'管理员中心',
                 component:AdminCenter
-            },{
-          path:"/getface",
-                name:"注册刷脸信息",
-                component:GetFaceInfo
             }
 
 
@@ -104,6 +101,15 @@ Vue.use(VueRouter)
                   name:'科研项目申请',
                   component:UserProject
 
+              },{
+                path:"/mylab",
+                  name:'我的实验室',
+                  component:UserLab
+
+              },{
+                  path:"/getface",
+                  name:"注册刷脸信息",
+                  component:GetFaceInfo
               }
 
 

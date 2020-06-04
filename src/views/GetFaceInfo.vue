@@ -67,6 +67,10 @@
                         data:params
                     }).then(function (resp) {
                         console.log(resp)
+                        if (resp.data.error_code=='0'){
+
+
+                        }
 
                     });
                 },3000);

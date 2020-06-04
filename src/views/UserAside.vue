@@ -32,6 +32,7 @@
                         <el-submenu index="1" >
                             <template slot="title"><i class="el-icon-message"></i>科研管理</template>
                             <el-menu-item @click="bedroom('/userlab')">实验室申请</el-menu-item>
+                            <el-menu-item @click="bedroom('/mylab')">我的实验室</el-menu-item>
                             <el-menu-item @click="bedroom('/applaymyproject')" >科研项目申请</el-menu-item>
                             <el-menu-item @click="bedroom('/myproject')" >我的科研项目</el-menu-item>
                             <!--                                    <el-menu-item @click="bedroom('/bedroom')">寝室管理</el-menu-item>-->

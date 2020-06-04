@@ -130,6 +130,20 @@
             },
             nosubmitEditForm(dialogDate){
                 console.log(this.dialogDate)
+                this.dialogDate.ispass='no';
+                const _this=this;
+                this.axios.post('http://localhost:8098/cloudzuul/keyanservice/project-applay/updateproject',_this.dialogDate)
+                    .then(function (resp) {
+                        console.log(resp)
+                        if (resp.data.code=='10000'){
+                            _this.dialogeditFormVisible=false
+                            _this.$message.success("成功")
+                            _this.flushTableDate();
+                        }
+                    })
+
+
+
             },
             handleEdit(index,row){
                 this.dialogeditFormVisible=true
