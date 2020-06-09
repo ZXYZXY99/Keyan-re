@@ -7,7 +7,7 @@
         <hr>
         <h1>#实验室审核记录</h1>
         <el-table
-                :data="tableDate"
+                :data="tableDate.slice((currentPage-1)*pagesize,currentPage*pagesize)"
                 style="width: 100%">
             <el-table-column
                     prop="id"
@@ -28,12 +28,22 @@
                     label="是否通过">
             </el-table-column>
         </el-table>
+        <el-pagination
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page="currentPage"
+                :page-sizes="[10, 20, 30]"
+                :page-size="pagesize"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total=tableDate.length>
+        </el-pagination>
+
 
         <hr>
         <h1>#项目审核记录</h1>
 
         <el-table
-                :data="keyantable"
+                :data="keyantable.slice((currentPage-1)*pagesize,currentPage*pagesize)"
                 style="width: 100%">
             <el-table-column
                     prop="id"
@@ -66,6 +76,20 @@
             </el-table-column>
 
         </el-table>
+
+        <el-pagination
+                @size-change="projecthandleSizeChange"
+                @current-change="projecthandleCurrentChange"
+                :current-page="projectcurrentPage"
+                :page-sizes="[10, 20, 30]"
+                :page-size="projectpagesize"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total=keyantable.length>
+        </el-pagination>
+
+
+
+
     </div>
 </template>
 
@@ -74,6 +98,10 @@
         name: "AdminCenter",
         data(){
             return{
+                currentPage:1,
+                pagesize:20,
+                projectcurrentPage:1,
+                projectpagesize:10,
                 tableDate:{
                     id:'',
                     applayLaboratoryNum:'',
@@ -93,6 +121,20 @@
             }
         },
         methods:{
+            handleSizeChange(val) {
+                this.pagesize = val;
+            },
+            handleCurrentChange(val) {
+                this.currentPage = val;
+            },
+
+            projecthandleSizeChange(val) {
+                this.projectpagesize = val;
+            },
+            projecthandleCurrentChange(val) {
+                this.projectcurrentPage = val;
+            },
+
 
         },created() {
             const _this=this;

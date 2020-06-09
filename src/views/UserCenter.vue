@@ -49,7 +49,8 @@
 
                         <h1>#科研项目申请记录</h1>
                         <el-table
-                                :data="keyantable"
+
+                                :data="keyantable.slice((keyancurrentPage-1)*keyanpagesize,keyancurrentPage*keyanpagesize)"
                                 style="width: 100%">
                                 <el-table-column
                                         prop="id"
@@ -82,7 +83,15 @@
                                 </el-table-column>
 
                         </el-table>
-
+                        <el-pagination
+                                @size-change="keyanhandleSizeChange"
+                                @current-change="keyanhandleCurrentChange"
+                                :current-page="keyancurrentPage"
+                                :page-sizes="[10, 20, 30]"
+                                :page-size="keyanpagesize"
+                                layout="total, sizes, prev, pager, next, jumper"
+                                :total=keyantable.length>
+                        </el-pagination>
 
 
 
@@ -109,6 +118,8 @@
                             },
                             currentPage:1,
                             pagesize:20,
+                            keyancurrentPage:1,
+                            keyanpagesize:10,
                             username:null,
                             isfaceinfo:null,
                             keyantable:{
@@ -129,6 +140,13 @@
                     },
                     handleCurrentChange(val) {
                             this.currentPage = val;
+                    },
+
+                    keyanhandleSizeChange(val) {
+                            this.keyanpagesize = val;
+                    },
+                    keyanhandleCurrentChange(val) {
+                            this.keyancurrentPage = val;
                     },
 
 

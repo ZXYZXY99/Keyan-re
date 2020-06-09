@@ -1,7 +1,8 @@
 <template>
     <div>
         <el-table
-                :data="tableData"
+                :data="tableData.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+
                 style="width: 100%">
             <el-table-column
                     prop="id"
@@ -30,12 +31,21 @@
                     <el-button
                             size="mini"
                             @click="handleEdit(scope.$index, scope.row)">详情</el-button>
-
-
-
                 </template>
             </el-table-column>
         </el-table>
+        <el-pagination
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page="currentPage"
+                :page-sizes="[10, 20, 30]"
+                :page-size="pagesize"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total=tableData.length>
+        </el-pagination>
+
+
+
         <!--        弹出的修改学生信息表单-->
         <el-dialog title="查看详情" :visible.sync="dialogeditFormVisible"  >
             <el-form :model="dialogDate" :rules="dialogrules" ref="dialogDate">
@@ -83,6 +93,8 @@
         data(){
             return{
                 dialogeditFormVisible:false,
+                currentPage:1,
+                pagesize:20,
                 tableData:{
                     id:'',
                     projectName:'',
@@ -109,6 +121,12 @@
                 this.dialogDate=row;
 
 
+            },
+            handleSizeChange(val) {
+                this.pagesize = val;
+            },
+            handleCurrentChange(val) {
+                this.currentPage = val;
             },
             resetForm(){
               this.dialogeditFormVisible=false;

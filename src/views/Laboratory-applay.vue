@@ -102,14 +102,16 @@
             }
         },methods:{
             handleEdit(index){
-                console.log(index)
+                const _this=this;
                 index.ispass='yes';
                 this.axios.post('http://localhost:8098/cloudzuul/keyanservice/laboratory-applay/admin/updateLab',index)
                     .then(function (resp) {
                     console.log(resp)
-                        if (resp.data.code=="10000"){
-                            _this.flushTableDate();
+                        console.log(resp.data.code)
+                        if (resp.data.code=='10000'){
                             _this.$message.success("修改成功")
+                            _this.flushTableDate();
+
                         }
                     })
             },

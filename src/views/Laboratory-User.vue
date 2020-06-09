@@ -2,7 +2,7 @@
     <div>
         <h1>实验室申请</h1>
         <el-table
-                :data="tableDate"
+                :data="tableDate.slice((currentPage-1)*pagesize,currentPage*pagesize)"
                 style="width: 100%">
             <el-table-column
                     prop="id"
@@ -34,6 +34,17 @@
                 </template>
             </el-table-column>
         </el-table>
+        <el-pagination
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page="currentPage"
+                :page-sizes="[10, 20, 30]"
+                :page-size="pagesize"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total=tableDate.length>
+        </el-pagination>
+
+
 
     </div>
 </template>
@@ -43,6 +54,8 @@
         name: "Laboratory-User",
         data(){
             return{
+                currentPage:1,
+                pagesize:20,
                 tableDate:{
                     id:'',
                     laboratoryNum:'',
@@ -63,6 +76,12 @@
                 })
 
 
+            },
+            handleSizeChange(val) {
+                this.pagesize = val;
+            },
+            handleCurrentChange(val) {
+                this.currentPage = val;
             },
             reget(){
                 const _this=this;

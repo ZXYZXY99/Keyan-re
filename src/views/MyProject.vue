@@ -1,7 +1,7 @@
 <template>
         <div>
             <el-table
-                    :data="tableData"
+                    :data="tableData.slice((currentPage-1)*pagesize,currentPage*pagesize)"
                     style="width: 100%">
                 <el-table-column
                         prop="id"
@@ -33,6 +33,15 @@
                     </template>
                 </el-table-column>
             </el-table>
+            <el-pagination
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page="currentPage"
+                    :page-sizes="[10, 20, 30]"
+                    :page-size="pagesize"
+                    layout="total, sizes, prev, pager, next, jumper"
+                    :total=tableData.length>
+            </el-pagination>
 
 
             <!--        弹出的修改学生信息表单-->
@@ -78,6 +87,8 @@
             return{
                 dialogeditFormVisible:false,
                 formLabelWidth: '120px',
+                currentPage:1,
+                pagesize:20,
                 tableData:{
                     id:'',
                     projectName:'',
@@ -116,6 +127,12 @@
                 this.dialogeditFormVisible = true;
                 // this.dialogData=row
 
+            },
+            handleSizeChange(val) {
+                this.pagesize = val;
+            },
+            handleCurrentChange(val) {
+                this.currentPage = val;
             },
             submitEditForm(editform){
                 console.log(editform)
