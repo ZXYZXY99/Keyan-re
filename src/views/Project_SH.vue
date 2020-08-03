@@ -115,7 +115,7 @@
                 console.log(this.dialogDate)
                 this.dialogDate.ispass='yes'
                 const _this=this;
-                this.axios.post('http://localhost:8098/cloudzuul/keyanservice/project-applay/updateproject',_this.dialogDate)
+                this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/project-applay/updateproject',_this.dialogDate)
                     .then(function (resp) {
                     console.log(resp)
                         if (resp.data.code=='10000'){
@@ -132,7 +132,7 @@
                 console.log(this.dialogDate)
                 this.dialogDate.ispass='no';
                 const _this=this;
-                this.axios.post('http://localhost:8098/cloudzuul/keyanservice/project-applay/updateproject',_this.dialogDate)
+                this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/project-applay/updateproject',_this.dialogDate)
                     .then(function (resp) {
                         console.log(resp)
                         if (resp.data.code=='10000'){
@@ -158,7 +158,7 @@
             },
             flushTableDate(){
                 const _this=this;
-                this.axios.post('http://localhost:8098/cloudzuul/keyanservice/project-applay/getlistByisuse').then(function
+                this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/project-applay/getlistByisuse').then(function
                     (resp) {
                     _this.tableData=resp.data.data;
                 })
@@ -166,7 +166,7 @@
         },created() {
             const _this=this;
 
-            this.axios.post('http://localhost:8098/cloudzuul/keyanservice/project-applay/getlistByisuse').then(function
+            this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/project-applay/getlistByisuse').then(function
                 (resp) {
                 _this.tableData=resp.data.data;
             })

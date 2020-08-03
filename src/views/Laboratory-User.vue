@@ -67,7 +67,7 @@
             handleEdit(index,row){
                 console.log(row.id,this.$username);
                 const _this=this;
-                this.axios.post('http://localhost:8098/cloudzuul/keyanservice/laboratory/applayupdate',null,{params:{
+                this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory/applayupdate',null,{params:{
                     id:row.id,
                     username:this.$username
                     }}).then(function (resp) {
@@ -85,7 +85,7 @@
             },
             reget(){
                 const _this=this;
-                this.axios.get('http://localhost:8098/cloudzuul/keyanservice/laboratory/getlist').then(function
+                this.axios.get('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory/getlist').then(function
                     (resp) {
                     _this.tableDate=resp.data.data
                 })
@@ -93,7 +93,7 @@
         },created() {
             const _this=this;
 
-            this.axios.get('http://localhost:8098/cloudzuul/keyanservice/laboratory/getlist').then(function
+            this.axios.get('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory/getlist').then(function
                 (resp) {
                 _this.tableDate=resp.data.data
             })

@@ -107,7 +107,7 @@
                 console.log("退出")
                     var _this=this;
                 console.log(getToken())
-                    this.axios.post('http://localhost:8098/cloudzuul/keyanservice/admin/out').then(function () {
+                    this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/admin/out').then(function () {
                         removeToken();
                         _this.$router.push('/login')
                     })
@@ -132,7 +132,7 @@
             }
         },created() {
             const _this=this
-            this.axios.get('http://localhost:8098/cloudzuul/keyanservice/admin/getusername').then(function (resp) {
+            this.axios.get('http://121.41.93.145:8098/cloudzuul/keyanservice/admin/getusername').then(function (resp) {
                 console.log(resp.data.data)
                 _this.username=resp.data.data;
                 Vue.prototype.$adminname=resp.data.data;

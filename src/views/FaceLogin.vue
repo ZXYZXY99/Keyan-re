@@ -72,14 +72,14 @@
                         //     headers:{
                         //         'Content-type':'application/json;charset=utf-8',
                         //     },
-                        //     url: 'http://localhost:8088/cloudzuul/admin/loginface',
+                        //     url: 'http://121.41.93.145:8088/cloudzuul/admin/loginface',
                         //     data: params,
                         //     // params:params
                         // })
-                        // this.axios.get('https://localhost:8088/codeservice/codeservice/userinfo/loginface',{params:{
+                        // this.axios.get('https://121.41.93.145:8088/codeservice/codeservice/userinfo/loginface',{params:{
                         //     "imagebast64":img
                         //     }})
-                            this.axios.post('http://localhost:8098/cloudzuul/keyanservice/user/loginface'
+                            this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/user/loginface'
                                 ,JSON.stringify(_this.imagestring),{headers:{
                                         'Content-Type': 'application/json'
                                     }})

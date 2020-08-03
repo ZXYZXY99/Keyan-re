@@ -104,7 +104,7 @@
             handleEdit(index){
                 const _this=this;
                 index.ispass='yes';
-                this.axios.post('http://localhost:8098/cloudzuul/keyanservice/laboratory-applay/admin/updateLab',index)
+                this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory-applay/admin/updateLab',index)
                     .then(function (resp) {
                     console.log(resp)
                         console.log(resp.data.code)
@@ -131,7 +131,7 @@
             submitEditForm(reson){
                 const _this=this;
                 console.log(this.dialogDate)
-                this.axios.post('http://localhost:8098/cloudzuul/keyanservice/laboratory-applay/admin/updateLab',_this.dialogDate)
+                this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory-applay/admin/updateLab',_this.dialogDate)
                     .then(function (resp) {
                         console.log(resp)
                         if (resp.data.code=="10000"){
@@ -143,7 +143,7 @@
             },
             flushTableDate(){
                 const _this=this
-                this.axios.post('http://localhost:8098/cloudzuul/keyanservice/laboratory-applay/admin/getapplaying').then(function (resp) {
+                this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory-applay/admin/getapplaying').then(function (resp) {
                     _this.tableDate=resp.data.data
                 })
             },
@@ -151,7 +151,7 @@
         },created() {
             const _this=this
 
-            this.axios.post('http://localhost:8098/cloudzuul/keyanservice/laboratory-applay/admin/getapplaying').then(function (resp) {
+            this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory-applay/admin/getapplaying').then(function (resp) {
                 _this.tableDate=resp.data.data
             })
 

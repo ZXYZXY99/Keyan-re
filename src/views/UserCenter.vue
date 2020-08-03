@@ -153,25 +153,25 @@
             },created() {
 
                     const _this=this
-                    this.axios.get('http://localhost:8098/cloudzuul/keyanservice/user/getusername').then(function (resp) {
+                    this.axios.get('http://121.41.93.145:8098/cloudzuul/keyanservice/user/getusername').then(function (resp) {
                             console.log(resp.data.data)
                             _this.username=resp.data.data;
                     })
 
-                    this.axios.get("http://localhost:8098/cloudzuul/keyanservice/user/isfaceinfo").then(function
+                    this.axios.get("http://121.41.93.145:8098/cloudzuul/keyanservice/user/isfaceinfo").then(function
                             (resp) {
                             // console.log(resp)
                             _this.isfaceinfo=resp.data.data
                     })
 
-                    this.axios.post('http://localhost:8098/cloudzuul/keyanservice/laboratory-applay/getUserLab').then(function (resp) {
+                    this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory-applay/getUserLab').then(function (resp) {
                            // console.log(resp)
 
                             _this.tableDate=resp.data.data
                     })
 
 
-                    this.axios.post('http://localhost:8098/cloudzuul/keyanservice/project-applay/applayprojectuser').then(function (resp) {
+                    this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/project-applay/applayprojectuser').then(function (resp) {
                             console.log(resp)
                             _this.keyantable=resp.data.data
                     })

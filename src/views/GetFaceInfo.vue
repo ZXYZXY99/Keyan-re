@@ -63,7 +63,7 @@
                     _this.axios({
                         method: 'post',
                         dataType: "json",
-                        url: 'http://localhost:8098/cloudzuul//keyanservice/user/getface',
+                        url: 'http://121.41.93.145:8098/cloudzuul//keyanservice/user/getface',
                         data:params
                     }).then(function (resp) {
                         console.log(resp)
@@ -92,7 +92,7 @@
             }
         },created() {
             const _this=this
-            this.axios.get('http://localhost:8098/cloudzuul/keyanservice/user/getusername').then(function (resp) {
+            this.axios.get('http://121.41.93.145:8098/cloudzuul/keyanservice/user/getusername').then(function (resp) {
                 // console.log(resp.data.data)
                 _this.username=resp.data.data;
                 console.log(_this.username+"我是用户名")
