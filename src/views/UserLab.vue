@@ -62,7 +62,7 @@
             handleEdit(row){
                 const _this=this;
                 console.log(row)
-                this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory/returnLab',row)
+                this.axios.post('http://120.26.90.28:8098/cloudzuul/keyanservice/laboratory/returnLab',row)
                     .then(function (resp) {
                         console.log(resp)
                         if (resp.data.code=='10000'){
@@ -73,7 +73,7 @@
             },
             flushTable(){
                 const  _this=this;
-                this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory/getmyLab')
+                this.axios.post('http://120.26.90.28:8098/cloudzuul/keyanservice/laboratory/getmyLab')
                     .then(function (resp) {
                         console.log(resp)
                         if (resp.data.code=='10000'){
@@ -87,7 +87,7 @@
         },created() {
             const  _this=this;
 
-            this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory/getmyLab')
+            this.axios.post('http://120.26.90.28:8098/cloudzuul/keyanservice/laboratory/getmyLab')
                 .then(function (resp) {
                     console.log(resp)
                     if (resp.data.code=='10000'){

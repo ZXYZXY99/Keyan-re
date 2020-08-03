@@ -139,7 +139,7 @@
                 const  _this=this;
                 this.$refs[editform].validate((valid) => {
                     if (valid) {
-                        this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/project-sys/updateproject'
+                        this.axios.post('http://120.26.90.28:8098/cloudzuul/keyanservice/project-sys/updateproject'
                             ,_this.dialogData).then(function (resp) {
                             console.log(resp)
                             if (resp.data.code=='10000'){
@@ -157,7 +157,7 @@
             regetData(){
                 const _this=this
                 // _this.username=this.$username
-                this.axios.get("http://121.41.93.145:8098/cloudzuul/keyanservice/project-sys/getuserproject").then(function (resp) {
+                this.axios.get("http://120.26.90.28:8098/cloudzuul/keyanservice/project-sys/getuserproject").then(function (resp) {
                     console.log(resp)
                     _this.tableData=resp.data.data
                 })
@@ -171,7 +171,7 @@
 
             const _this=this
             // _this.username=this.$username
-            this.axios.get("http://121.41.93.145:8098/cloudzuul/keyanservice/project-sys/getuserproject").then(function (resp) {
+            this.axios.get("http://120.26.90.28:8098/cloudzuul/keyanservice/project-sys/getuserproject").then(function (resp) {
                 console.log(resp)
                 _this.tableData=resp.data.data
             })

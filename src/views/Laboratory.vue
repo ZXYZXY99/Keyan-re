@@ -112,7 +112,7 @@
                 if (this.addDate.laboratoryNum==''){
                     this.$message.error("请输入信息")
                 } else {
-                    this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory/admin/addLab',_this.addDate)
+                    this.axios.post('http://120.26.90.28:8098/cloudzuul/keyanservice/laboratory/admin/addLab',_this.addDate)
                         .then(function (resp) {
                             console.log(resp)
                             if (resp.data.code=="10000"){
@@ -136,7 +136,7 @@
                 this.dialogFormVisible=false;
             },flushtableDate(){
                 const _this=this;
-                this.axios.get('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory/getAll').then(function
+                this.axios.get('http://120.26.90.28:8098/cloudzuul/keyanservice/laboratory/getAll').then(function
                     (resp) {
                     _this.tableDate=resp.data.data
                 })
@@ -147,7 +147,7 @@
                 if (index.laboratoryIsuse=='yes'){
                     this.$message.error("请先让借用者归还实验室");
                 }else {
-                this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory/admin/deleteLab',index)
+                this.axios.post('http://120.26.90.28:8098/cloudzuul/keyanservice/laboratory/admin/deleteLab',index)
                     .then(function (resp) {
                     console.log(resp)
                         if (resp.data.code=='10000'){
@@ -162,7 +162,7 @@
             },
         },created() {
             const _this=this;
-            this.axios.get('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory/getAll').then(function
+            this.axios.get('http://120.26.90.28:8098/cloudzuul/keyanservice/laboratory/getAll').then(function
                 (resp) {
                 _this.tableDate=resp.data.data
             })

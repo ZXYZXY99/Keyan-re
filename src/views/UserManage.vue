@@ -95,7 +95,7 @@
                 const  _this=this;
                 this.$refs[userdialogData].validate((valid) => {
                     if (valid) {
-                        this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/admin/updateUser',_this.userdialogData)
+                        this.axios.post('http://120.26.90.28:8098/cloudzuul/keyanservice/admin/updateUser',_this.userdialogData)
                             .then(function (resp) {
                             console.log(resp.data.code)
                                 if (resp.data.code=='10000'){
@@ -124,7 +124,7 @@
             handleDelete(index, row) {
                 const  _this=this
                 console.log(index, row);
-                this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/admin/deleteUser',row).then(function (resp) {
+                this.axios.post('http://120.26.90.28:8098/cloudzuul/keyanservice/admin/deleteUser',row).then(function (resp) {
                     console.log(resp)
                     if (resp.data.code=='10000'){
                         _this.$message.success("删除成功")
@@ -136,7 +136,7 @@
             },
             regetTableDate(){
                 const _this=this;
-                this.axios.get('http://121.41.93.145:8098/cloudzuul/keyanservice/user/getlist').then(function (resp) {
+                this.axios.get('http://120.26.90.28:8098/cloudzuul/keyanservice/user/getlist').then(function (resp) {
                     console.log(resp.data.data)
                     _this.tableData=resp.data.data
                 })
@@ -146,7 +146,7 @@
 
         },created() {
             const _this=this;
-            this.axios.get('http://121.41.93.145:8098/cloudzuul/keyanservice/user/getlist').then(function (resp) {
+            this.axios.get('http://120.26.90.28:8098/cloudzuul/keyanservice/user/getlist').then(function (resp) {
                 console.log(resp.data.data)
                 _this.tableData=resp.data.data
             })

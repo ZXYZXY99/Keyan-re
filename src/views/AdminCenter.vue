@@ -138,7 +138,7 @@
 
         },created() {
             const _this=this;
-            this.axios.get('http://121.41.93.145:8098/cloudzuul/keyanservice/laboratory-applay/admin/getApplayLog')
+            this.axios.get('http://120.26.90.28:8098/cloudzuul/keyanservice/laboratory-applay/admin/getApplayLog')
                 .then(function (resp) {
                     if (resp.data.code=='10000'){
                         _this.tableDate=resp.data.data
@@ -147,7 +147,7 @@
             });
 
 
-            this.axios.get('http://121.41.93.145:8098/cloudzuul/keyanservice/project-applay/getApplayLog')
+            this.axios.get('http://120.26.90.28:8098/cloudzuul/keyanservice/project-applay/getApplayLog')
                 .then(function (resp) {
                 if (resp.data.code=='10000'){
                     _this.keyantable=resp.data.data

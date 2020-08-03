@@ -80,7 +80,7 @@
                 this.$refs[ruleForm].validate((valid) => {
                         if (valid) {
                             if (_this.switch_vlue){
-                                this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/admin/login',this.ruleForm).then(function
+                                this.axios.post('http://120.26.90.28:8098/cloudzuul/keyanservice/admin/login',this.ruleForm).then(function
                                     (resp) {
                                     console.log(resp)
                                     if (resp.data.success){
@@ -96,7 +96,7 @@
                             }else {
                                 _this.userForm.userName=_this.ruleForm.adminName
                                 _this.userForm.userPassword=_this.ruleForm.adminPassword
-                                this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/user/login',this.userForm).then(function
+                                this.axios.post('http://120.26.90.28:8098/cloudzuul/keyanservice/user/login',this.userForm).then(function
                                     (resp) {
                                     console.log(resp)
                                     if (resp.data.success){

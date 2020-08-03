@@ -140,7 +140,7 @@
             const _this=this;
 
 
-            this.axios.get('http://121.41.93.145:8098/cloudzuul/keyanservice/project-sys/getlist').then(function
+            this.axios.get('http://120.26.90.28:8098/cloudzuul/keyanservice/project-sys/getlist').then(function
                 (resp) {
                 _this.tableData=resp.data.data
             })

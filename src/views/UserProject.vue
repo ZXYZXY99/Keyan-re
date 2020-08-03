@@ -70,7 +70,7 @@
                 const _this=this;
                 this.$refs[keyan].validate((valid) => {
                     if (valid) {
-                            this.axios.post('http://121.41.93.145:8098/cloudzuul/keyanservice/project-applay/applayproject',_this.keyan).then(function
+                            this.axios.post('http://120.26.90.28:8098/cloudzuul/keyanservice/project-applay/applayproject',_this.keyan).then(function
                                 (resp) {
                                 console.log(resp)
                                 if (resp.data.code=='10000'){
